@@ -1,0 +1,71 @@
+.corpo {
+    height: 800px;
+}
+
+.titulo {
+    padding-top: 10px;
+}
+
+.cartao {
+    margin: auto; 
+    width: 400px;
+    height: 400px;
+}
+
+.texto {
+    padding: 5px;
+}
+
+.dados {
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.botao {
+    width: 50px;
+}
+
+.camera_off {
+    font-size: 200px;
+    color: gray;
+}
+
+.info_filme {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0;
+}
+
+.nome_filme {
+    text-align: center;
+    background-color: gainsboro;
+    margin-bottom: 5px;
+}
+
+.sidh {
+    margin: 0;
+}
+
+.sala_idioma_diretor {
+    display: flex;
+    text-align: center;
+    padding: 0;
+    min-width: 370px;
+    margin-bottom: 5px;
+}
+
+.fsala, .fidioma, .fdir {
+    white-space: nowrap;
+}
+
+.fhor {
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+}
+
+.horas {
+    min-width: 45px;
+    text-align: center;
+}

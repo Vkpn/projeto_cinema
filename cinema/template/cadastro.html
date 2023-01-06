@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'cadastro/css/cadastro.css' %}">
+{% endblock %}
+
+{% block 'body' %}
+    <div class="container bg-light border border-secondary my-1 rounded-1 corpo">
+        <h1 class="text-center titulo">Cadastrar Filme</h1>
+        <hr>
+
+        <div class="corpo_formulario">
+            <form action="{% url 'cadastrar' %}" enctype='multipart/form-data' method="POST"> {% csrf_token %}
+
+                <div class="row">
+
+                    <div class="col-md">
+                        <label for="nome">Nome: <i class="bi bi-film"></i></label>
+                        <input class="form-control" type="text" name="nome" id="nome_filme" value="{{ nome }}" required>
+                    </div>
+                    
+                    <div class="col-md">
+                        <div class="col-md">
+                            <label for="nome">Lançamento: <i class="bi bi-calendar-week"></i></label>
+                            <input class="form-control" type="date" name="lancamento" id="nome_filme" value="{{ lancamento }}" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md">
+                        <label for="nome">Diretor: <i class="bi bi-signpost-split"></i></label>
+                        <input class="form-control" type="text" name="diretor" id="nome_filme" value="{{ diretor }}" required>
+                    </div>
+                    <div class="col-md">
+                        <label>Gênero: <i class="bi bi-funnel"></i></label>
+                            <select class="form-control" name="genero" value="{{ genero }}">
+                                <option value="Comedia">Comedia</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Ação">Ação</option>
+                                <option value="Terror">Terror</option>
+                                <option value="Suspense">Suspense</option>
+                                <option value="Ficcao">Ficção</option>
+                                <option value="Animação">Animação</option>
+                                <option value="Documentário">Documentário</option>
+                                <option value="Musical">Musical</option>
+                                <option value="Especial">Especial</option>
+                            </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md">
+                        <label>Capa do Filme: <i class="bi bi-file-earmark-post"></i></label>
+                        <input type="file" class="form-control" name="capa_do_filme">
+                    </div>
+
+                    <div class="col-md">
+                        <label>Idioma: <i class="bi bi-chat-left-text"></i></i></label>
+                        <select class="form-control" name="idioma" value="{{ idioma }}">
+                            <option value="Dublado">Dublado</option>
+                            <option value="Legendado">Legendado</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    
+                    <div class="col-md horarios">
+                        <label>Horarios: <i class="bi bi-clock"></i></label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1" name="hora">
+                            <label class="form-check-label" for="inlineCheckbox1">14:00</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="2" name="hora">
+                            <label class="form-check-label" for="inlineCheckbox2">16:00</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="3" name="hora">
+                            <label class="form-check-label" for="inlineCheckbox3">18:00</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="4" name="hora">
+                            <label class="form-check-label" for="inlineCheckbox4">20:00</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="5" name="hora">
+                            <label class="form-check-label" for="inlineCheckbox5">22:00</label>
+                          </div>
+                    </div>
+                    <div class="col-md">
+                        <label>Sala: <i class="bi bi-projector"></i></label>
+                            <select class="form-control" name="sala" value="{{ sala }}">
+                                <option value="Sala 01">Sala 01</option>
+                                <option value="Sala 02">Sala 02</option>
+                                <option value="Sala 03">Sala 03</option>
+                                <option value="Sala 04">Sala 04</option>
+                                <option value="Sala 05">Sala 05</option>
+                                <option value="Sala 06">Sala 06</option>
+                            </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md">
+                        <label>Sinopse: <i class="bi bi-blockquote-left"></i></label>
+                        <textarea name="sinopse" class="form-control sinopse" placeholder="Escreva a sinopse do filme..." required maxlength="500">{{ sinopse }}</textarea>
+                    </div>
+                </div>
+                <input class="btn btn-primary botao" type="submit" value="Submit">
+                <input class="btn btn-primary botao" type="reset" value="Reset">
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        {% for msg in messages %}
+            swal('{{ msg }}', " ", "success", {
+                buttons: false,
+                timer: 2000,
+                });
+        {% endfor %}
+    </script>
+{% endblock %}

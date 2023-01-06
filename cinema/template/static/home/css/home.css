@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&family=Bebas+Neue&display=swap');
+
+
+
+.camera_off {
+    font-size: 200px;
+    color: gray;
+}
+
+.corpo {
+    min-height: 800px;
+    padding: 5px 15px;
+    display: flex;
+    box-sizing: border-box;
+    
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.pointer_block {
+    pointer-events: none;
+}
+
+.cartao{
+    margin: auto; 
+    width: 400px;
+    height: 450px;
+    align-self: center;
+}
+
+.area_util {
+    padding: 5px;
+}
+
+.destaque{
+    display: flex;
+    padding: 10px;
+}
+
+.separador { 
+    margin: auto;   
+    padding: 0px; 
+    width: 300px;
+    border: 1px solid #979797;
+}
+
+.filme_info{
+    background-color:  #e0661f;
+    border: 1px solid #979797;
+    min-width: 426px;
+    color: #212529;
+}
+
+.cartaz {
+    height: 450px;
+}
+
+.nome_filme {
+    margin-top: 5px;
+    font-size: 2.5rem;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.sinopse {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5rem;
+    border: 1px solid #212529;
+    min-height: 310px;
+    margin-bottom: 0px;
+    text-align: justify;
+    padding: 5px;
+}
+
+.horarios {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem;
+    margin: 10px;
+}
+
+.info_horarios{
+    justify-content: space-between;
+    display: flex;
+}
+
+.lista_horarios{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sala_exibicao{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem;
+    margin: 10px;
+}
+
+.info-cinema {
+    background-color:  #212529;
+    min-height: 320px;
+    color: white;
+    margin-top: 2px;
+    border: 1px solid #979797;
+    min-width: 300px;
+}
+
+.titulo-localizacao {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 1.4rem;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.titulo_contato {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 1.4rem;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.mapa {
+    width: 100%;
+}
+
+.endereco {
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.local {
+    max-width: 522px;
+    margin: 0 auto;
+    margin-top: 2px;
+}
+
+.form_msg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: start;
+}
+
+.formulario_contato {
+    width: 100%;
+}
+
+.text_area {
+    min-height: 150px;
+}
+
+.botao {
+    margin: 5px 5px 5px 0px;
+}
+
+.botoes {
+    display: flex;
+}

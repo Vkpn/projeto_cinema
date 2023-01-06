@@ -1,0 +1,15 @@
+.titulo {
+    padding-top: 10px;
+}
+
+.corpo {
+    height: 800px;
+}
+
+.botao {
+    margin-top: 5px;
+}
+
+.horarios {
+    justify-content: space-between;
+}

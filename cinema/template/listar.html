@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'listar/css/listar.css' %}">
+{% endblock %}
+
+{% block 'body' %}
+    <div class="container bg-light border border-secondary my-1 rounded-1 corpo">
+        <h1 class="text-center titulo">Lista de Filmes:</h1>
+        <hr>
+        {% if not filmes %}
+            <div class="card text-center cartao">
+                <div class="card-body">
+                <h5 class="card-title">Nenhuma Sessão Cadastrada:</h5>
+                <i class="bi bi-camera-video-off camera_off"></i>
+                <br>
+                <a href="{% url 'cadastrar' %}" class="btn btn-primary">Cadastrar Filme</a>
+                </div>
+            </div>
+        {% else %}
+            {% for filme in filmes %}
+                <form action="{% url 'excluir_filme' filme.id %}" value="{{ filme.id }}" method="POST"> {% csrf_token %}
+                    <div class="container border border-dark rounded dados">
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <div class="container">
+                                    <div class="row align-items-start">
+                                        <div class="col info_filme">
+                                            <div class="col nome_filme">
+                                                {{ filme.nome }}
+                                            </div>
+                                            <div class="row sidh">
+                                                <div class="col sala_idioma_diretor">
+                                                    <span>|</span>
+                                                    <div class="col fsala">
+                                                        <span>{{ filme.sala }}</span>
+                                                    </div>
+                                                    <span>|</span>
+                                                    <div class="col fidioma">
+                                                        <span>{{ filme.idioma }}</span>
+                                                    </div>
+                                                    <span>|</span>
+                                                    <div class="col fdir">
+                                                        <span>{{ filme.diretor }}</span>
+                                                    </div>
+                                                    <span>|</span>
+                                                </div>
+                                                
+                                                <div class="col fhor">
+                                                    {% for h in filme.horarios_filmes.all %}
+                                                        <span class="horas">{{ h }}</span>
+                                                        {% if forloop.counter != filme.horarios_filmes.all.count %}
+                                                            <span>-</span>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-1 botao">
+                                            <button type="submit" class="btn-close" aria-label="Close"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        {% for msg in messages %}
+            
+            swal('{{ msg }}', " ", "error", {
+                    buttons: false,
+                    timer: 2000,
+                    });
+
+        {% endfor %}
+    </script>
+{% endblock %}

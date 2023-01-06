@@ -1,0 +1,26 @@
+:root {
+    --destaque: #fc7b30;
+    --fundo: lightgray;
+    --escuro: black;
+    --claro: white;
+    --contraste_neutro: #875053;
+
+}
+
+.fundo {
+    background-color: var(--fundo); 
+    background-image: url("/static/base/img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.logo {
+    color: var(--destaque);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.camera {
+    margin-right: 5px;
+}
